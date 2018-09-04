@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> {
 
-    private List<String> items = new ArrayList <>(  );
+    private List<String> items = new ArrayList <>(  );//создаём основной список для Adapter
 
     @NonNull
     @Override
@@ -26,7 +26,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         ImageView iv = (ImageView) viewHolder.itemView;
-        Picasso.get().load( items.get(position) ).into( iv );
+        Picasso.get().load( items.get(position) ).into( iv );//*загружаем картинки из списка с помощью Picasso в подготовленный ImageView
     }
 
     @Override

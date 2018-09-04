@@ -11,8 +11,8 @@ import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-final public class RestApi {
-    private static final String BASE_URL = "http://dev-tasks.alef.im/";
+final public class RestApi {//настраиваеме Rest для нашего источника
+    private static final String BASE_URL = "http://dev-tasks.alef.im/";//
     private static final long CONNECT_TIMEOUT = 60;
     private static final long READ_TIMEOUT = 60;
 //RequestManager
@@ -23,7 +23,7 @@ final public class RestApi {
             .addConverterFactory( createConvertFactory() )
             .build();
 
-    public static <S> S creteService(Class<S> klass) {
+    public static <S> S createService(Class<S> klass) {
         return retrofit.create( klass );
     }
 

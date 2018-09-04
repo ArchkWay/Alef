@@ -22,20 +22,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView( R.layout.activity_main );
         RecyclerView rv = findViewById( R.id.recycler );
         final ImageAdapter adapter = new ImageAdapter();
-        int spanCount = getResources().getInteger( R.integer.span_count );
-        GridLayoutManager lm = new GridLayoutManager( this, spanCount );
+        int spanCount = getResources().getInteger( R.integer.span_count );//задаём количество рядов картинок
+        GridLayoutManager lm = new GridLayoutManager( this, spanCount );//GridLayoutManager для сетчатых квадратных картинок
         rv.setLayoutManager( lm );
-        rv.setAdapter( adapter );
+        rv.setAdapter( adapter );/*адаптер recycleview*/
 
-        Display display = getWindowManager().getDefaultDisplay();
-        DisplayMetrics outMetrics = new DisplayMetrics ();
-        display.getMetrics(outMetrics);
-
-
-        RestApi.creteService( Service.class ).getPictures().enqueue( new Callback <List <String>>() {
+        RestApi.createService( Service.class ).getPictures().enqueue( new Callback <List <String>>() {//с помощью Rest api загружаем картинки в список
             @Override
             public void onResponse(Call<List <String>> call, @Nullable Response<List <String>> response) {
-                adapter.addAll( response.body() );
+                adapter.addAll( response.body() );//в adapter RecycleView
             }
 
             @Override
