@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         int spanCount = getResources().getInteger( R.integer.span_count );//задаём количество рядов картинок
         GridLayoutManager lm = new GridLayoutManager( this, spanCount );//GridLayoutManager для сетчатых квадратных картинок
         rv.setLayoutManager( lm );
-        rv.setAdapter( adapter );/*адаптер recycleview*/
+        rv.setAdapter( adapter );//адаптер recycleview
 
         RestApi.createService( Service.class ).getPictures().enqueue( new Callback <List <String>>() {//с помощью Rest api загружаем картинки в список
             @Override
